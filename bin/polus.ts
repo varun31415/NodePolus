@@ -60,6 +60,7 @@ server.on("connection", async (evt: ConnectionEvent) => {
     var i = 0; 
     setInterval(function() {
       evt.player.setName("i = " + i)
+      i++;
     }, 1000)
   });
 });
