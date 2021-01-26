@@ -57,7 +57,7 @@ server.on("connection", async (evt: ConnectionEvent) => {
   });
   evt.connection.on("joinRoom", async (evt: JoinRoomEvent) => {
     console.log(`[Event] Connection[${connection.ID}] > 'joinRoom'`);
-    // evt.player.setName("A Name Override")
+    evt.player.setName("A Name Override")
   });
 });
 
