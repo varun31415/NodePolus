@@ -170,6 +170,7 @@ export class Player extends AsyncEventEmitter<PlayerEvents> {
 
   changeName(playerName: string) {
     this.int_name = playerName;
+    console.log(this.int_name)
   }
 
   setID(playerID: number) {
