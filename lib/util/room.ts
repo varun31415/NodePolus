@@ -133,6 +133,7 @@ export class Room extends EventEmitter {
         //TODOPRIORITY: CRITICAL
         break;
       case "GameData":
+        console.log("yay")
         if (
           packet.RecipientClientID &&
           packet.RecipientClientID === 2147483646
