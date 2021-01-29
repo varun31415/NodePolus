@@ -100,7 +100,7 @@ export class Player extends AsyncEventEmitter<PlayerEvents> {
   }
   private int_name: string;
   get name(): string {
-    console.log("called")
+    console.log("called: " + this.int_name); 
     return this.int_name;
   }
   constructor(playerData: GameDataPlayerData) {
@@ -170,7 +170,6 @@ export class Player extends AsyncEventEmitter<PlayerEvents> {
 
   changeName(playerName: string) {
     this.int_name = playerName;
-    console.log("changin to: " + playerName);
   }
 
   setID(playerID: number) {
