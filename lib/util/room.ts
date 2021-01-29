@@ -149,6 +149,7 @@ export class Room extends EventEmitter {
             ),
           });
           packet.Packets.forEach((packet) => {
+            console.log(packet.type);
             if (packet.type == GameDataPacketType.Spawn) {
               if (
                 packet.SpawnID == ObjectType.Player &&
