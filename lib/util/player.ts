@@ -167,10 +167,6 @@ export class Player extends AsyncEventEmitter<PlayerEvents> {
     });
   }
 
-  changeName(playerName: string) {
-    this.int_name = playerName;
-  }
-
   setID(playerID: number) {
     this.int_ID = playerID;
     //TODO: Emit event 'IDChanged':IDChangedEvent
@@ -178,22 +174,24 @@ export class Player extends AsyncEventEmitter<PlayerEvents> {
   }
 
   setName(playerName: string) {
-    this.int_name = playerName;
-    //TODO: Emit event 'NameChanged':NameChangedEvent
-    this.connection?.room.broadcastToAll({
-      type: "GameData",
-      RoomCode: this.connection.room.code,
-      Packets: [
-        {
-          type: 2,
-          NetID: this.connection.netIDs[0],
-          RPCFlag: RPCPacketType.SetName,
-          Packet: {
-            Name: this.int_name,
+    if (this.int_name != playerName) {
+      this.int_name = playerName;
+      //TODO: Emit event 'NameChanged':NameChangedEvent
+      this.connection?.room.broadcastToAll({
+        type: "GameData",
+        RoomCode: this.connection.room.code,
+        Packets: [
+          {
+            type: 2,
+            NetID: this.connection.netIDs[0],
+            RPCFlag: RPCPacketType.SetName,
+            Packet: {
+              Name: this.int_name,
+            },
           },
-        },
-      ],
-    });
+        ],
+      });
+    }
   }
 
   setColor(playerColor: PlayerColor) {
