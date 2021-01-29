@@ -167,6 +167,10 @@ export class Player extends AsyncEventEmitter<PlayerEvents> {
     });
   }
 
+  changeName(playerName: string) {
+    this.int_name = playerName;
+  }
+
   setID(playerID: number) {
     this.int_ID = playerID;
     //TODO: Emit event 'IDChanged':IDChangedEvent

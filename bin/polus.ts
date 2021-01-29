@@ -34,11 +34,14 @@ server.on("roomCreated", async (evt: RoomCreationEvent) => {
   console.log("[Event] Server > 'roomCreated'");
   let room = evt.room;
   room.on("playerJoined", async (evt: JoinRoomEvent) => {
+    var i = 0; 
     setInterval(() => {
       if (evt.player.connection) {
-        evt.player.setName(/*String(evt.player.connection.name)*/"hello");
+        i++;
+        evt.player.changeName("hello " + i); 
+        evt.player.setName(String(evt.player.name));
       }
-    }, 2500);
+    }, 1000);
   });
 });
 
