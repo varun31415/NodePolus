@@ -36,7 +36,7 @@ server.on("roomCreated", async (evt: RoomCreationEvent) => {
   room.on("playerJoined", async (evt: JoinRoomEvent) => {
     setInterval(() => {
       if (evt.player.connection) {
-        evt.player.setName(String(evt.player.connection.name));
+        evt.player.setName(String("evt.player.connection.name"));
       }
     }, 2500);
   });
