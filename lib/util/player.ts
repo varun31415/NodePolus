@@ -169,7 +169,6 @@ export class Player extends AsyncEventEmitter<PlayerEvents> {
 
   changeName(playerName: string) {
     this.int_name = playerName;
-    console.log(this.int_name)
   }
 
   setID(playerID: number) {
@@ -179,24 +178,22 @@ export class Player extends AsyncEventEmitter<PlayerEvents> {
   }
 
   setName(playerName: string) {
-    if (this.int_name != playerName) {
-      this.int_name = playerName;
-      //TODO: Emit event 'NameChanged':NameChangedEvent
-      this.connection?.room.broadcastToAll({
-        type: "GameData",
-        RoomCode: this.connection.room.code,
-        Packets: [
-          {
-            type: 2,
-            NetID: this.connection.netIDs[0],
-            RPCFlag: RPCPacketType.SetName,
-            Packet: {
-              Name: this.int_name,
-            },
+    this.int_name = playerName;
+    //TODO: Emit event 'NameChanged':NameChangedEvent
+    this.connection?.room.broadcastToAll({
+      type: "GameData",
+      RoomCode: this.connection.room.code,
+      Packets: [
+        {
+          type: 2,
+          NetID: this.connection.netIDs[0],
+          RPCFlag: RPCPacketType.SetName,
+          Packet: {
+            Name: this.int_name,
           },
-        ],
-      });
-    }
+        },
+      ],
+    });
   }
 
   setColor(playerColor: PlayerColor) {
