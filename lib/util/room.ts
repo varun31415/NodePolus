@@ -133,7 +133,6 @@ export class Room extends EventEmitter {
         //TODOPRIORITY: CRITICAL
         break;
       case "GameData":
-        this.gameState = GameState.Started;
         if (
           packet.RecipientClientID &&
           packet.RecipientClientID === 2147483646

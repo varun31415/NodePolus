@@ -7,6 +7,7 @@ export interface SendChatPacket {
 
 export const SendChat: PacketHandler<SendChatPacket> = {
   parse(packet: PolusBuffer): SendChatPacket {
+    console.log(packet.readString());
     return { ChatText: packet.readString() };
   },
 
