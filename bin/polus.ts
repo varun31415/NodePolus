@@ -37,7 +37,6 @@ server.on("roomCreated", async (evt: RoomCreationEvent) => {
     var i = 0; 
     setInterval(() => {
       if (evt.player.connection) {
-        console.log("changin...")
         i++;
         evt.player.changeName("hello " + i); 
         evt.player.setName(String(evt.player.name));
