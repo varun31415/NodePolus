@@ -58,10 +58,10 @@ server.on("connection", async (evt: ConnectionEvent) => {
   evt.connection.on("joinRoom", async (evt: JoinRoomEvent) => {
     console.log(`[Event] Connection[${connection.ID}] > 'joinRoom'`);
     var i = 0; 
-    setInterval(function() {
-      evt.player.setName("i = " + i)
-      i++;
-    }, 1000)
+    //setInterval(function() {
+    //  evt.player.setName("i = " + i)
+    //  i++;
+    //}, 1000)
   });
 });
 
