@@ -225,7 +225,6 @@ export class Room extends EventEmitter {
                   } else {
                     this.startPacketGroupBroadcastToAll();
                     connection.player.setName(pd[0].PlayerName);
-                    console.log(pd[0].PlayerName); 
                     connection.player.setColor(pd[0].Color);
                     connection.player.setHat(pd[0].HatID);
                     connection.player.setPet(pd[0].PetID);
