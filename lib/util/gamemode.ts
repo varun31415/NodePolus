@@ -1,4 +1,4 @@
-import { GameModes } from "../../data/enums/gameModes";
+import { GameModes } from "../data/enums/gameModes";
 
 export class RoomGameMode {
     GameMode: number = 0; 
