@@ -16,6 +16,7 @@ import { PolusBuffer } from "./polusBuffer";
 import { DataPacket } from "../packets/subpackets/gameDataPackets/data";
 import { ObjectType } from "../packets/subpackets/gameDataPackets/spawn";
 import { Player } from "./player";
+import { RoomGameMode } from "./gamemode";
 import { JoinRoomEvent } from "../events";
 import { UpdateGameDataPacket } from "../packets/subpackets/gameDataPackets/rpcPackets/updateGameData";
 import { GameDataPlayerData } from "../packets/packetElements/componentTypes";
@@ -39,6 +40,9 @@ export class Room extends EventEmitter {
   public connections: Connection[] = [];
   public limboIds: number[] = [];
   public hasHost: boolean = false;
+
+  public gameMode = new RoomGameMode();
+
   private internalCode: string;
   public get code(): string {
     return this.internalCode;
