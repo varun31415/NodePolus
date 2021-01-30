@@ -34,7 +34,7 @@ server.on("roomCreated", async (evt: RoomCreationEvent) => {
   console.log("[Event] Server > 'roomCreated'");
   let room = evt.room;
   room.on("playerJoined", async (evt: JoinRoomEvent) => {
-    evt.player.setName(String("hello "));
+    evt.player.setName(String("\x1b[36m%s\x1b[0m"), String("hello "));
   });
 });
 
